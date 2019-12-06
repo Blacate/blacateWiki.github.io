@@ -1,3 +1,3 @@
-npm owner add test03 @citic-press/eureka-service --registry=https://registry.npm.dev.yunpub.cn
-npm login --registry=https://registry.npm.dev.yunpub.cn --scope=@citic-press
+npm owner add neail @neail/npm-demo --registry=https://registry.npm.neail.xyz
+npm login --registry=https://registry.npm.neail.xyz --scope=@neail
 npm config set @myco:registry http://reg.example.com
