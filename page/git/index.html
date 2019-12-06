@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                git - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">Tools</a>
+<h1 class="page-title">git</h1>
+<div class="page-content">
+<h3><a href="#Daily_Use" name="Daily_Use" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Daily Use</h3>
+<pre><code class="language-bash">git init // 初始化git仓库
+git status // 查看当前状态
+git diff // 查看工作区和暂存区文件改动
+git add . // 追踪所有文件
+git commit -m &quot;message&quot; // 将暂存区的改动保存到版本库
+git push origin master // 将本地库的改动同步到远程仓库
+git show commitId [fileName] // 查看某个commit修改的内容,可选指定文件
+</code></pre>
+<h3><a href="#Advanced_Usage" name="Advanced_Usage" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Advanced Usage</h3>
+<pre><code class="language-shell">// 新建一个空白分支, orphan参数是文件存在，但commit记录不存在
+git checkout --orphan new-branch &amp;&amp; git rm -rf ./
+// 查找某个author的提交，可选：加上指定文件
+git log --author=&quot;Neail&quot; [src/App.vue]
+// 查找commit log中相关内容
+git log --grep=&quot;update&quot; [src/App.vue]
+</code></pre>
+<h3><a href="#合并commit/修改commit信息" name="合并commit/修改commit信息" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;合并 commit / 修改 commit 信息</h3>
+<pre><code class="language-bash"># 修改最近一次提交
+git commit --amend -m &quot;some message&quot;
+# 修改多个提交信息
+git rebase -i HEAD~3
+</code></pre>
+<h3><a href="#[移除一个commit](https://github.com/zhongxia245/blog/issues/81)" name="[移除一个commit](https://github.com/zhongxia245/blog/issues/81)" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;<a href="https://github.com/zhongxia245/blog/issues/81">移除一个 commit</a></h3>
+<pre><code class="language-shell"># 1. 查看任务A相关代码commit的id
+git log 
+
+# 2. 回退到不包含任务A部分代码的commit 位置
+git reset --soft commitid
+
+# 3. commit之后的代码，还存在 modified 区域
+git rm 任务A的文件
+
+# 4. 提交代码
+git commit -am '提交任务B代码，任务B描述'
+
+# 5. push 到个人远程仓库分支
+git push -f 
+
+# 6. 搞定
+</code></pre>
+<h3><a href="#断点续传" name="断点续传" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;断点续传</h3>
+<pre><code class="language-bash">git fetch git://github.com/repo.git
+git checkout FETCH_HEAD
+</code></pre>
+<h3><a href="#Git_Conf" name="Git_Conf" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Git Conf</h3>
+<pre><code class="language-bash">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;email@example.com&quot;
+git config --global push.followTags true // 推送tag
+</code></pre>
+<h3><a href="#Update_a_fork" name="Update_a_fork" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Update a fork</h3>
+<pre><code class="language-bash">git remote add upstream &lt;repo url&gt;
+git fetch upstream // 存储在本地分支 upstream/master 上
+git checkout master
+git merge upstream/master
+</code></pre>
+<h3><a href="#Version_Manage" name="Version_Manage" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Version Manage</h3>
+<pre><code class="language-bash">// 工作区 暂存区 版本库
+git log [--pretty=oneline] [--abbrev-commit] // 显示版本库的提交日志
+// HEAD 表示当前版本 HEAD^表示上一个版本
+git reset --hard HEAD^
+git reflog // 查看git命令历史，方便回到未来的版本
+git checkout -- file // 工作区文件回到暂存区/版本库最近的状态
+git reset HEAD file //　暂存区文件回到版本库最近的状态
+git rm // 删除文件
+get revert &lt;commit id&gt; // 用一个新提交来消除一个历史提交所做的任何修改
+git fetch --all &amp;&amp; git reset --hard origin/master &amp;&amp; git pull // 强制覆盖本地文件
+</code></pre>
+<h3><a href="#Remote_Repo" name="Remote_Repo" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Remote Repo</h3>
+<pre><code class="language-bash">git remote -v // 查看远程仓库配置
+git remote add origin git@github.com:blacate/wiki.git // 添加远程仓库，别名为origin
+git push [--force] origin master // 把版本库同步到远程仓库
+git push origin :master // 删除远程仓库master分支
+git fetch origin // 取回远程仓库
+git merge origin/next // 把远程仓库的origin的next分支合并到当前分支
+git pull origin next // git fetch origin &amp;&amp; git merge origin/next
+git pull origin next:master // 把远程的next分支合并到本地master分支
+git branch --set-upstream dev origin/dev //设置远程分支origin/dev的链接
+git pull origin // 如果远程仓库只有一个分支
+git pull // 如果只有一个远程仓库
+</code></pre>
+<h3><a href="#Branch" name="Branch" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Branch</h3>
+<pre><code class="language-bash">git branch new // 新建远程分支new
+git checkout new // 切换到远程分支new
+git checkout -b new // 创建并切换到远程分支new
+git branch // 查看所有分支
+git merge new // 把new分支合并到当前分支
+git merge --no-ff -m &quot;no fast forward&quot; second // merge时生成一个新的commit
+git branch -d old // 删除old分支
+git log --graph // 查看分支合并图
+git stash // 把工作现场储存起来
+git stash list // 查看工作现场列表
+git stash apply/drop/pop // 恢复/删除/弹出工作现场
+git branch -D needtodel // 强制删除needtodel分支
+git branch --set-upstream dev origin/dev //设置远程分支origin/dev的链接
+git rebase new // 在新的base上一个一个地运行new分支上的所有commits[1]
+</code></pre>
+<h3><a href="#Tag" name="Tag" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Tag</h3>
+<pre><code class="language-bash">git tag v1.0
+git tag v0.9 &lt;commit id&gt;
+git show v0.9
+git push origin &lt;tagname&gt;
+git push origin --tags
+git tag -d &lt;tagname&gt;
+git push origin :refs/tags/&lt;tagname&gt; // 删除远程标签
+</code></pre>
+<h4><a href="#ref" name="ref" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;ref</h4>
+<ul>
+<li><a href="https://www.jianshu.com/p/3d0ae7fbbbe1">Git pull 强制覆盖本地文件</a></li>
+<li><a href="http://yijiebuyi.com/blog/8f985d539566d0bf3b804df6be4e0c90.html">git reset revert</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰 git</a></li>
+<li><a href="https://gaohaoyang.github.io/2015/04/12/Syncing-a-fork/">同步一个 fork</a></li>
+<li><a href="http://blog.csdn.net/qq_15037231/article/details/77937402">git pull 命令</a></li>
+<li><strong>[1]</strong><a href="https://www.cnblogs.com/kidsitcn/p/5339382.html">git rebase vs git merge</a></li>
+<li><a href="https://segmentfault.com/a/1190000004931751">在 GIT 中创建一个空分支</a></li>
+<li><a href="https://blog.csdn.net/gracioushe/article/details/6249480">git log 查找某一个 author 的提交</a></li>
+<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2">重写历史</a></li>
+</ul>
+<p><em>Last Update: 2019-12-06 12:56:05</em> <a href="/raw/git.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

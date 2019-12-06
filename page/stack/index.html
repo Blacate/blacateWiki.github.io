@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                Stack - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">Algorithm</a>
+<h1 class="page-title">Stack</h1>
+<div class="page-content">
+<pre><code class="language-javascript">// 栈构造函数
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+
+    push(item) {
+        this.items.push(item);
+    }
+
+    pop() {
+        return this.items.pop();
+    }
+
+    peek() {
+        return this.items[this.items.length - 1];
+    }
+
+    isEmpty() {
+        return this.items.length &lt; 1;
+    }
+
+    clear() {
+        this.items = [];
+    }
+
+    size() {
+        return this.items.length;
+    }
+
+    print() {
+        console.log(this.items.toString())
+    }
+}
+
+// 实例化一个栈
+let stack = new Stack();
+</code></pre>
+<p><em>Last Update: 2019-12-06 12:57:22</em> <a href="/raw/stack.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

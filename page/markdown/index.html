@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                NeailWiki - Because Change Happens.            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label"></a>
+<h1 class="page-title"></h1>
+<div class="page-content">
+<p>title: markdown
+category: Tools</p>
+<h2><a href="#time:_1547964464411" name="time:_1547964464411" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;time: 1547964464411</h2>
+<h3><a href="#标题" name="标题" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;标题</h3>
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+
+一级标题
+========
+
+二级标题
+--------
+</code></pre>
+<h3><a href="#无序列表" name="无序列表" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;无序列表</h3>
+<pre><code>+ 无序列表一
++ 无序列表二
++ 无序列表三
+
+* 无序列表一
+* 无序列表二
+* 无序列表三
+
+- 无序列表一
+- 无序列表二
+- 无序列表三
+</code></pre>
+<h3><a href="#有序列表" name="有序列表" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;有序列表</h3>
+<pre><code>1. 有序列表一
+2. 有序列表二
+3. 有序列表三
+</code></pre>
+<h3><a href="#斜体和粗体" name="斜体和粗体" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;斜体和粗体</h3>
+<pre><code>*斜体*
+_斜体_
+
+**粗体**
+__粗体__
+
+***斜体加粗***
+___斜体加粗___
+</code></pre>
+<h3><a href="#外链" name="外链" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;外链</h3>
+<pre><code>// 行内式
+[GitHub官网](https://github.com/)
+
+// 参考式
+[Google][link]
+[link]: https://www.google.com
+
+// 自动链接
+&lt;https://www.google.com&gt;
+</code></pre>
+<h3><a href="#图片" name="图片" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;图片</h3>
+<pre><code>// 行内式
+![图片说明](https://cdn.images.com/image.png)
+
+// 参考式
+![Github Logo][github]
+[github]: https://github.com/logo.png
+
+// 指定图片大小
+&lt;img src=&quot;https://cdn.com/image.png&quot; alt=&quot;说明&quot; title=&quot;标题&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
+</code></pre>
+<h3><a href="#文字引用" name="文字引用" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;文字引用</h3>
+<pre><code>&gt;猛兽总是独行，牛羊才成群结队。
+&gt;&gt;嵌套引用
+</code></pre>
+<h3><a href="#代码块" name="代码块" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;代码块</h3>
+<pre><code>`行内代码块`
+
+​```bash
+echo '块状代码块'
+​```
+
+    上一行空行，且当前行前面有四个空格
+</code></pre>
+<h3><a href="#分割线" name="分割线" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;分割线</h3>
+<pre><code>---
+
++++
+
+***
+
+___
+
+// 三个或以上的 + - * _ 可以表示分割线
+</code></pre>
+<h3><a href="#段落" name="段落" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;段落</h3>
+<pre><code>
+以一个空行开始，以一个空行结束，中间的就是一个段落。
+如果段落内换行可以用 两个空格加回车 换行
+或者使用&lt;br /&gt;标签换行
+
+</code></pre>
+<h3><a href="#表格" name="表格" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;表格</h3>
+<pre><code>dog | bird | cat
+:---|:----:| ---:
+foo | foo  | foo
+bar | bar  | bar
+baz | baz  | baz
+
+:---  左对齐
+:---: 居中对齐
+---:  右对齐
+</code></pre>
+<h3><a href="#删除线" name="删除线" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;删除线</h3>
+<pre><code>~~~中划线~~~
+</code></pre>
+<h3><a href="#任务列表" name="任务列表" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;任务列表</h3>
+<pre><code>- [ ] 未完成
+- [x] 已完成
+</code></pre>
+<h4><a href="#参考资料" name="参考资料" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;参考资料</h4>
+<p><a href="http://xianbai.me/learn-md/index.html">http://xianbai.me/learn-md/index.html</a></p>
+<p><a href="https://www.jianshu.com/p/c4e93e97143c">https://www.jianshu.com/p/c4e93e97143c</a></p>
+<p><em>Last Update: 2019-12-06 12:56:41</em> <a href="/raw/markdown.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                Inherit - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">JavaScript</a>
+<h1 class="page-title">Inherit</h1>
+<div class="page-content">
+<h3><a href="#原型" name="原型" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;原型</h3>
+<p>每个<code>JavaScript</code>对象 (除 null) 在创建时都会关联另一个对象，这个对象就是我们所说的原型，每个对象都会从原型 “继承” 属性；每个对象 (除 null) 的<code>__proto__</code>指向该对象的原型。</p>
+<h3><a href="#原型链" name="原型链" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;原型链</h3>
+<p>对象的<code>__proto__</code>依次串联，会形成一条<code>__proto__</code>连起来的链条，递归访问<code>__proto__</code>最终到 null。</p>
+<p>ps: 类比链表，每个节点的 next 都指向下一个节点，最终到 null；区别：节点并没有继承下一个节点的属性。</p>
+<h3><a href="#继承" name="继承" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;继承</h3>
+<h5><a href="#原型链继承" name="原型链继承" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;原型链继承</h5>
+<pre><code class="language-javascript">function Parent() {
+  this.property = true
+}
+Parent.prototype.getParentValue = function () {
+  return this.property
+}
+function Child() {
+  this.Childproperty = false
+}
+Child.prototype = new Parent()
+Child.prototype.getChildValue = function () {
+  return this.Childproperty
+}
+var instance = new Child()
+console.log(instance.getParentValue())
+</code></pre>
+<h5><a href="#构造函数继承" name="构造函数继承" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;构造函数继承</h5>
+<pre><code class="language-javascript">function Parent() {
+  this.colors = ['red', 'blue', 'green']
+}
+function Child() {
+  // 继承Parent
+  Parent.call(this)
+}
+var instance1 = new Child()
+var instance2 = new Child()
+instance1.colors.push('black')
+console.log(instance1.colors)  // [“red”, “blue”, “green”, “black”]
+console.log(instance2.colors) // [“red”, “blue”, “green”]
+</code></pre>
+<h5><a href="#组合继承（原型链+构造函数）" name="组合继承（原型链+构造函数）" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;组合继承（原型链 + 构造函数）</h5>
+<pre><code class="language-javascript">function Parent(name) {
+    this.name = name;
+  this.colors = ['red','blue','green'];
+}
+
+Parent.prototype.sayName = function() {
+    console.log(this.name)
+}
+
+function Child(name, job) {
+    Parent.call(this,name);
+  this.job = job;
+}
+
+Child.prototype = new Parent();
+Child.prototype.constructor = Parent;
+Child.prototype.sayJob = function() {
+    console.log(this.job);
+}
+
+console.log(new Child('xiaoming', 'student'));
+</code></pre>
+<h5><a href="#原型式继承" name="原型式继承" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;原型式继承</h5>
+<pre><code class="language-javascript">function object(o) {
+    function F() {}
+  F.prototype = o;
+  return new F();
+}
+
+var person = {
+  name: 'Jiang',
+  friends: ['Shelby', 'Court']
+}
+console.log(object(person))
+console.log(Object.create(person))
+</code></pre>
+<h5><a href="#寄生组合式继承" name="寄生组合式继承" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;寄生组合式继承</h5>
+<pre><code class="language-javascript">function inheritPrototype(Child, Parent) {
+  var prototype = Object.create(Parent.prototype)
+  prototype.constructor = Child
+  Child.prototype = prototype
+}
+
+//ES6
+// 继承
+Object.setPrototypeOf(Child.prototype, Parent.prototype)
+console.log(Child.prototype.constructor === Child) // true
+
+</code></pre>
+<h4><a href="#附图" name="附图" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;附图</h4>
+<p><img src="/static/proto.jpg" alt="proto.jpg" /></p>
+<p><em>Last Update: 2019-12-06 12:56:19</em> <a href="/raw/Inherit.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                Recursion - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">Algorithm</a>
+<h1 class="page-title">Recursion</h1>
+<div class="page-content">
+<h3><a href="#求n的阶乘" name="求n的阶乘" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;求 n 的阶乘</h3>
+<h4><a href="#普通递归" name="普通递归" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;普通递归</h4>
+<pre><code class="language-JavaScript">function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n*factorial(n-1);
+  }
+}
+//思路： n！=n*(n-1)*(n-2)*...*1
+//       =n*(n-1)!
+</code></pre>
+<h4><a href="#尾递归" name="尾递归" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;尾递归</h4>
+<pre><code class="language-JavaScript">function tailFactorial(n, total  = 1) {
+  if (n === 0) {
+    return total;
+  } else {
+    return tailFactorial(n-1, n*total)
+  }
+}
+//思路:把结果作为参数传入函数中，n可以理解为有1到n个元素的栈
+//假设n=4，栈中压入1,2,3,4四个元素，第一次调用函数，由于是累乘，传入默认参数total=1,
+//4出栈，将4*total=4作为第一次运算结果传入第二次调用；此时，栈中还有三个元素，传入的total为4；
+//3出栈，将3*total=12作为第一次运算结果传入第三次调用；此时，栈中还有两个元素，传入的total为12；
+//2出栈，将2*total=24作为第一次运算结果传入第四次调用；此时，栈中还有一个元素，传入的total为24；
+//1出栈，将1*total=24作为第一次运算结果传入第五次调用；
+//此时，栈中没有元素了，传入的total为24,执行n=0时的语句，return total;
+</code></pre>
+<h5><a href="#结果缓存" name="结果缓存" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;结果缓存</h5>
+<pre><code class="language-JavaScript">//这不是递归的写法，但是通过把结果缓存下来，能够很大程度上提高多次运算时的运算速度
+let factorial = (function() {
+  let result = [1,1];
+  let calc = function(n) {
+    if(n &gt; (result.length - 1)) {
+      for(let i = result.length; i &lt;=n; i++) {
+        result[i] = result[i-1] * i;
+      }
+    }
+    return result[n];
+  }
+  return calc;
+})()
+</code></pre>
+<p><em>Last Update: 2019-12-06 12:57:10</em> <a href="/raw/recursion.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

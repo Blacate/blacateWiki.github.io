@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                Ajax - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">JavaScript</a>
+<h1 class="page-title">Ajax</h1>
+<div class="page-content">
+<pre><code class="language-javascript">function ajax(type, url, data = {}) {
+    return new Promise((resolve) =&gt; {
+        // 创建对象（兼容IE）
+        let xhr =  XMLHttpRequest 
+        ? new XMLHttpRequest() 
+        : new ActiveXObjece('Microsoft.XMLHTTP');
+        type = type.toUpperCase();
+        // 处理参数
+        let dataArr = [];
+        for(let k in data) {
+            dataArr.push(`${k}=${data[k]}`)
+        }
+        // get请求
+        if (type === 'GET') {
+            url = `${url}?${dataArr.join('&amp;')}`;
+            xhr.open(type, url.replace(/\?$/g, ''), true);
+            xhr.send();
+        }
+        // post请求
+        if (type === 'POST') {
+            xhr.open(type, url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(dataArr.join('&amp;'))
+        }
+        // 请求成功触发后交付数据
+        xhr.onload = function() {
+            let res = {};
+            res.status = xhr.status;
+            res.data = JSON.parse(xhr.responseText);
+            resolve(res)
+        }
+    })
+}
+ajax('get', 'https://api.github.com/').then((res) =&gt; {
+    console.log(res.data);
+})
+</code></pre>
+<h4><a href="#readyState" name="readyState" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;readyState</h4>
+<table class="ui celled table">
+<thead>
+<tr><th>值</th><th>状态</th><th>描述</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>UNSENT</td><td>请求未初始化，open() 未调用</td></tr>
+<tr><td>1</td><td>OPENED</td><td>服务器连接已连接，但还未发送请求</td></tr>
+<tr><td>2</td><td>HEADERS_RECEIVED</td><td>已经收到了响应头，但还未收到响应主体</td></tr>
+<tr><td>3</td><td>LOADING</td><td>正在接收响应主体，但还未完成</td></tr>
+<tr><td>4</td><td>DONE</td><td>整个请求完成</td></tr>
+</tbody>
+</table>
+<h4><a href="#事件处理程序" name="事件处理程序" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;事件处理程序</h4>
+<table class="ui celled table">
+<thead>
+<tr><th>事件</th><th>描述</th></tr>
+</thead>
+<tbody>
+<tr><td>onabort</td><td>当请求终止时触发</td></tr>
+<tr><td>onload</td><td>当请求成功时触发</td></tr>
+<tr><td>onloadend</td><td>当请求成功或失败时触发; after load,abort,error,timeout</td></tr>
+<tr><td>onloadstart</td><td>当请求开始时触发</td></tr>
+<tr><td>onreadystatechange</td><td>当 readyState 属性改变时触发</td></tr>
+<tr><td>ontimeout</td><td>当 timeout 属性指定的时间已经过去后触发</td></tr>
+<tr><td>onerror</td><td>请求因错误失败时触发</td></tr>
+<tr><td>onprogress</td><td>当响应主体正在下载重复触发 (50ms interval)</td></tr>
+</tbody>
+</table>
+<h5><a href="#ref" name="ref" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;ref</h5>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest">MDN-XMLHttpRequest</a></li>
+<li><a href="http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_create.asp">w3school-ajax</a></li>
+<li><a href="http://blog.csdn.net/ruoyiqing/article/details/39191287">XMLHttpRequest 对象主要属性和事件</a></li>
+</ul>
+<p><em>Last Update: 2019-12-06 12:55:40</em> <a href="/raw/ajax.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                Flex - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">CSS</a>
+<h1 class="page-title">Flex</h1>
+<div class="page-content">
+<h3><a href="#Flex" name="Flex" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Flex</h3>
+<h4><a href="#容器的属性" name="容器的属性" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;容器的属性</h4>
+<h5><a href="#flex-direction" name="flex-direction" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-direction</h5>
+<ul>
+<li>row 从左到右</li>
+<li>row-reverse 从右到左</li>
+<li>column 从上到下</li>
+<li>column-reverse 从下到上</li>
+</ul>
+<p data-height="265" data-theme-id="0" data-slug-hash="vpRQZE" data-default-tab="html,result" data-user="Blacate" data-embed-version="2" data-pen-title="flex-direction" class="codepen">See the Pen <a href="https://codepen.io/Blacate/pen/vpRQZE/">flex-direction</a> by BestYang (<a href="https://codepen.io/Blacate">@Blacate</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<h5><a href="#flex-wrap" name="flex-wrap" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-wrap</h5>
+<ul>
+<li>nowrap 不换行</li>
+<li>wrap 换行，第一行在上方</li>
+<li>wrap-reverse 换行，第一行在下方</li>
+</ul>
+<h5><a href="#flex-flow" name="flex-flow" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-flow</h5>
+<pre><code class="language-css">flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+</code></pre>
+<h5><a href="#justify-content" name="justify-content" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;justify-content</h5>
+<ul>
+<li>flex-start 左对齐</li>
+<li>flex-end 右对齐</li>
+<li>center 居中对齐</li>
+<li>space-between 两端对齐，项目之间的间隔都相等</li>
+<li>space-around 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
+</ul>
+<h5><a href="#align-items" name="align-items" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;align-items</h5>
+<ul>
+<li>flex-start 交叉轴的起点对齐（上对齐）</li>
+<li>flex-end 交叉轴的终点对齐</li>
+<li>center 交叉轴的中点对齐</li>
+<li>baseline 项目的第一行文字的基线对齐</li>
+<li>stretch 如果项目未设置高度或设为 auto，将占满整个容器的高度 （default）</li>
+</ul>
+<h5><a href="#align-content_多根轴线的对齐方式" name="align-content_多根轴线的对齐方式" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;align-content 多根轴线的对齐方式</h5>
+<ul>
+<li>flex-start</li>
+<li>flex-end</li>
+<li>center</li>
+<li>space-between</li>
+<li>space-around</li>
+<li>stretch</li>
+</ul>
+<h4><a href="#项目的属性" name="项目的属性" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;项目的属性</h4>
+<h5><a href="#order_定义项目的排列顺序。数值越小，排列越靠前，默认为0" name="order_定义项目的排列顺序。数值越小，排列越靠前，默认为0" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;order 定义项目的排列顺序。数值越小，排列越靠前，默认为 0</h5>
+<h5><a href="#flex-grow_定义项目的放大比例" name="flex-grow_定义项目的放大比例" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-grow 定义项目的放大比例</h5>
+<h5><a href="#flex-shrink_定义项目的缩小比例" name="flex-shrink_定义项目的缩小比例" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-shrink 定义项目的缩小比例</h5>
+<h5><a href="#flex-basic_定义项目的宽度" name="flex-basic_定义项目的宽度" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex-basic 定义项目的宽度</h5>
+<h5><a href="#flex_`flex:_flex-grow_flex-shrink_flex-basic;`" name="flex_`flex:_flex-grow_flex-shrink_flex-basic;`" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;flex <code>flex: flex-grow flex-shrink flex-basic;</code></h5>
+<h5><a href="#align-self_效果同align-items" name="align-self_效果同align-items" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;align-self 效果同 align-items</h5>
+<p><em>Last Update: 2019-12-06 12:55:58</em> <a href="/raw/flex.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

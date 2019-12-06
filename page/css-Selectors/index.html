@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Neail">
+    <meta name="description" content="NeailWiki island">
+    <title>
+                CSS Selectors - NeailWiki            </title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/assets/semantic.min.css" rel="stylesheet"/>
+    <link href="/assets/style.css" rel="stylesheet"/>
+    <!-- <script src="/assets/semantic.min.js"></script> -->
+    <script src="/assets/highlight.min.js"></script>
+    <base target="_blank">
+</head>
+<body>
+<div style="margin-bottom: 80px;">
+    <div class="ui container">
+        <div class="ui dividing header">
+            <h1 class="heading">
+                <a href="/" class="logo-text" target="_self">
+                    NeailWiki                </a>
+            </h1>
+            <small>Because Change Happens.</small>
+        </div>
+<div class="ui stackable grid">
+<div id="detailInfo" class="twelve wide column">
+<div class="column">
+<div class="ui raised segment">
+<a class="ui blue ribbon label">CSS</a>
+<h1 class="page-title">CSS Selectors</h1>
+<div class="page-content">
+<h4><a href="#选择器其特殊性值" name="选择器其特殊性值" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;选择器其特殊性值</h4>
+<table class="ui celled table">
+<thead>
+<tr><th>选择器</th><th>特殊性值</th></tr>
+</thead>
+<tbody>
+<tr><td>// 内联声明</td><td>1 0 0 0</td></tr>
+<tr><td>ID 选择器</td><td>0 1 0 0</td></tr>
+<tr><td>类选择器、属性选择、伪类</td><td>0 0 1 0</td></tr>
+<tr><td>元素、伪元素选择器</td><td>0 0 0 1</td></tr>
+<tr><td>结合符和通配选择器</td><td>0 0 0 0</td></tr>
+</tbody>
+</table>
+<pre><code class="language-css">/* 内联声明 */
+&lt;h1 style=&quot;color:green;&quot;&gt;内联声明&lt;h1&gt;
+/* ID选择器 */
+#main {
+  color: green;
+}
+/* 类选择器、属性选择、伪类 */
+.main {
+  color: green;
+}
+a[href=&quot;www.baidu.com&quot;] {
+  color: green;
+}
+a:hover {
+  color: green;
+}
+/* 元素、伪元素选择器 */
+a {
+  color: green;
+}
+p:first-letter {
+  color: green;
+}
+/* 结合符、通配符选择器 */
+div &gt; h1 + p {
+  color: green;
+}
+* {
+  color: green;
+}
+</code></pre>
+<h4><a href="#CSS优先级法则" name="CSS优先级法则" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;CSS 优先级法则</h4>
+<ol>
+<li>选择器都有一个权值，权值越大越优先</li>
+<li>当权值相等时，后出现的样式表设置要优先于先出现的样式表设置</li>
+<li>创作者的设置高于浏览器的默认样式</li>
+<li>在同一组属性设置中标有<strong>!important</strong>规则的优先级最大</li>
+</ol>
+<h4><a href="#伪类选择器" name="伪类选择器" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;伪类选择器</h4>
+<ul>
+<li>link</li>
+<li>visited</li>
+<li>focus</li>
+<li>hover</li>
+<li>active</li>
+<li>disabled 表示被禁用的元素</li>
+<li>first-child 一组兄弟元素中的第一个元素</li>
+<li>first-of-type 表示一组兄弟元素中其类型的第一个元素</li>
+<li>invalid input 或 form 中输入内容无法通过验证</li>
+<li>valid</li>
+<li>last-child 父元素的最后一个子元素</li>
+<li>last-of-type 表示一组兄弟元素中其类型的最后一个元素</li>
+<li>checked</li>
+<li>default 表示一组相关元素中的默认表单元素</li>
+<li>in-range input 的值在合理范围</li>
+<li>out-of-range input 的值超出了合理范围</li>
+<li>lang() 根据其所确定的语言匹配元素</li>
+<li>not() 匹配不符合参数选择器 X 描述的元素</li>
+<li>nth-child(2n+1)</li>
+<li>nth-last-child(-n+4)</li>
+<li>nth-last-of-type(an+b)</li>
+<li>optional</li>
+<li>required</li>
+<li>only-child 属于某个父元素的唯一一个子元素</li>
+<li>only-of-type 代表了任意一个元素，这个元素没有其他相同类型的兄弟元素</li>
+<li>read-only</li>
+<li>read-write</li>
+<li>nth-of-type(an+b)</li>
+<li>fullscreen</li>
+<li>left</li>
+<li>right</li>
+<li>target</li>
+<li>root 匹配根元素 html</li>
+<li>dir</li>
+<li>indeterminate</li>
+<li>any</li>
+</ul>
+<h4><a href="#伪元素选择器" name="伪元素选择器" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;伪元素选择器</h4>
+<ul>
+<li>after</li>
+<li>before</li>
+<li>first-letter</li>
+<li>first-line</li>
+<li>selection</li>
+</ul>
+<h5><a href="#伪类与伪元素的区别" name="伪类与伪元素的区别" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;伪类与伪元素的区别</h5>
+<p>伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到，这也是为什么他们一个称为伪类，一个称为伪元素的原因。</p>
+<p><em>Last Update: 2019-12-06 12:55:50</em> <a href="/raw/css-Selectors.md">Source File</a></p>
+</div>
+<div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'NeailWiki';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="four wide column">
+<div class="column">
+<div class="ui card" style="margin:0 auto">
+    <div class="image">
+        <img class="sidebar-avatar" src="/static/avatar.jpg">
+    </div>
+    <div class="content">
+        <a class="header">Neail</a>
+        <div class="meta">
+            <span class="date">i@neail.xyz</span>
+        </div>
+        <div class="description">
+            FE | Ailurophile | Open Source
+        </div>
+    </div>
+    <div class="extra content" style="text-align: center">
+        <a href="https://github.com/blacate" class="item">
+            <i class="github icon large"></i>
+        </a>
+        <a href="https://plus.google.com/110495849647369930086" class="item">
+            <i class="google icon large"></i>
+        </a>
+        <a href="https://twitter.com/blacate1" class="item">
+            <i class="twitter icon large"></i>
+        </a>
+    </div>
+</div><div id="subSidebar" class="ui vertical menu sidebar-column">
+    <div class="item">
+        <div class="header"><a href="/" target="_self">Homepage</a></div>
+                <div class="header"><a href="/changelog/">Changelog</a></div>
+            </div>
+        <div class="item">
+        <div class="header">OS X</div>
+        <div class="menu">
+                        <a href="/page/Homebrew/" target="_self" class="item">
+                                Homebrew                            </a>
+                        <a href="/page/Install Nginx/" target="_self" class="item">
+                                Install Nginx                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">CSS</div>
+        <div class="menu">
+                        <a href="/page/Horizontal-And-Vertical-Centering/" target="_self" class="item">
+                                Horizontal And Vertical Centering                            </a>
+                        <a href="/page/bfc/" target="_self" class="item">
+                                BFC                            </a>
+                        <a href="/page/css-Selectors/" target="_self" class="item">
+                                CSS Selectors                            </a>
+                        <a href="/page/css-animation/" target="_self" class="item">
+                                CSS Animation                            </a>
+                        <a href="/page/display/" target="_self" class="item">
+                                Display                            </a>
+                        <a href="/page/flex/" target="_self" class="item">
+                                Flex                            </a>
+                        <a href="/page/float/" target="_self" class="item">
+                                Float                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">JavaScript</div>
+        <div class="menu">
+                        <a href="/page/Inherit/" target="_self" class="item">
+                                Inherit                            </a>
+                        <a href="/page/ajax/" target="_self" class="item">
+                                Ajax                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Tools</div>
+        <div class="menu">
+                        <a href="/page/git/" target="_self" class="item">
+                                git                            </a>
+                        <a href="/page/ssh/" target="_self" class="item">
+                                ssh                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Security</div>
+        <div class="menu">
+                        <a href="/page/letsencrypt/" target="_self" class="item">
+                                Let&#39;s Encrypt                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Algorithm</div>
+        <div class="menu">
+                        <a href="/page/linkedlist/" target="_self" class="item">
+                                LinkedList                            </a>
+                        <a href="/page/queue/" target="_self" class="item">
+                                Queue                            </a>
+                        <a href="/page/recursion/" target="_self" class="item">
+                                Recursion                            </a>
+                        <a href="/page/stack/" target="_self" class="item">
+                                Stack                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header"></div>
+        <div class="menu">
+                        <a href="/page/markdown/" target="_self" class="item">
+                                                            </a>
+                    </div>
+    </div>
+        <div class="item">
+        <div class="header">Web Server</div>
+        <div class="menu">
+                        <a href="/page/nginx/" target="_self" class="item">
+                                Nginx                            </a>
+                    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-text">
+        NeailWiki using <a href="https://github.com/phoenixlzx/MinoriWiki" target="_blank">MinoriWiki</a>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
