@@ -57,7 +57,7 @@ custom:
 # Deployment
 deploy:
   repo: git@github.com:Blacate/wiki.git
-  branch: master
+  branch: gh-pages
   cname: wiki.neail.xyz    # if you want to deploy site on github you probably want this
   s3:
     enabled: false
