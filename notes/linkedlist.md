@@ -1,6 +1,6 @@
+---
 title: LinkedList
 category: Algorithm
-
 time: 1520505033544
 ---
 ```javascript

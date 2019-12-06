@@ -1,6 +1,6 @@
+---
 title: Homebrew
 category: OS X
-
 time: 1551170723307
 ---
 ### Update Mirrors

@@ -1,3 +1,4 @@
+---
 title: Display
 category: CSS
 time: 1515655203495

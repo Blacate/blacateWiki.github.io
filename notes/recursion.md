@@ -1,6 +1,6 @@
+---
 title: Recursion
 category: Algorithm
-
 time: 1520509856847
 ---
 ### 求n的阶乘

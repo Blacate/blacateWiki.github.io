@@ -1,6 +1,6 @@
+---
 title: Queue
 category: Algorithm
-
 time: 1520504702303
 ---
 ```js

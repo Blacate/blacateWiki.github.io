@@ -1,6 +1,6 @@
+---
 title: Stack
 category: Algorithm
-
 time: 1520504839567
 ---
 ```javascript

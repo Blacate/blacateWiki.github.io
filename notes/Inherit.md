@@ -1,3 +1,4 @@
+---
 title: Inherit
 category: JavaScript
 time: 1520522251644
