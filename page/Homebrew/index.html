@@ -33,17 +33,11 @@
 <h1 class="page-title">Homebrew</h1>
 <div class="page-content">
 <h3><a href="#Update_Mirrors" name="Update_Mirrors" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;Update Mirrors</h3>
-<pre><code class="language-bash"># brew
-cd &quot;$(brew --repo)&quot;
-git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+<pre><code class="language-bash">git -C &quot;$(brew --repo)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
 
-# brew core
-cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;
-git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+git -C &quot;$(brew --repo homebrew/core)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
 
-# brew cask
-cd &quot;$(brew --repo)&quot;/Library/Taps/homebrew/homebrew-cask
-git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+git -C &quot;$(brew --repo homebrew/cask)&quot; remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
 </code></pre>
 <p><code>brew update</code>会检查<code>brew</code>、<code>brew-core</code>、<code>brew-cask</code>三个仓库的更新。由于这三个仓库是在 github 上，所以速度会很爆炸，更换为国内镜像的时候需要将这三个都替换掉。具体的信息可以通过<code>brew update -v</code>查看。</p>
 <h3><a href="#References" name="References" target="_self" class="anchor"><span class="header-link">#</span></a>&nbsp;References</h3>
@@ -51,7 +45,7 @@ git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 <li><p>https://mirror.tuna.tsinghua.edu.cn/help/homebrew/</p></li>
 <li><p>https://mirrors.ustc.edu.cn/help/homebrew-cask.git.html</p></li>
 </ul>
-<p><em>Last Update: 2019-12-06 12:56:11</em> <a href="/raw/Homebrew.md">Source File</a></p>
+<p><em>Last Update: 2020-01-13 16:49:12</em> <a href="/raw/Homebrew.md">Source File</a></p>
 </div>
 <div>
 <div id="disqus_thread"></div>

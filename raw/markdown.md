@@ -64,8 +64,9 @@ ___斜体加粗___
 // 行内式
 [GitHub官网](https://github.com/)
 
-// 参考式
+// 参考式（中间需要有空行）
 [Google][link]
+
 [link]: https://www.google.com
 
 // 自动链接
@@ -78,8 +79,9 @@ ___斜体加粗___
 // 行内式
 ![图片说明](https://cdn.images.com/image.png)
 
-// 参考式
+// 参考式（中间需要有空行）
 ![Github Logo][github]
+
 [github]: https://github.com/logo.png
 
 // 指定图片大小
@@ -146,7 +148,7 @@ baz | baz  | baz
 ### 删除线
 
 ```
-~~~中划线~~~
+~~中划线~~
 ```
 
 ### 任务列表
